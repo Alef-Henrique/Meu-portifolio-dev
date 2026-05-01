@@ -654,13 +654,18 @@ export default function App() {
           </div>
 
           <div className="flex items-center space-x-6">
-            <a href="#" className="p-3 bg-white/5 rounded-full text-zinc-400 hover:text-white hover:bg-primary hover:bg-blue-600 transition-all duration-300 transition-all">
+            <a href="https://github.com/Alef-Henrique">
               <Github size={20} />
             </a>
-            <a href="#" className="p-3 bg-white/5 rounded-full text-zinc-400 hover:text-white hover:bg-primary hover:bg-blue-600 transition-all duration-300 transition-all">
-              <Linkedin size={20} />
-            </a>
-            <a href="#" className="p-3 bg-white/5 rounded-full text-zinc-400 hover:text-white hover:bg-primary hover:bg-blue-600 transition-all duration-300 transition-all">
+              <a 
+                href="https://www.linkedin.com/in/alefe-henrique" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-white/5 rounded-full text-zinc-400 hover:text-white hover:bg-blue-600 transition-all duration-300"
+              >
+                <Linkedin size={20} />
+              </a>
+            <a href="mailto:alefereal123@gmail.com" className="p-3 bg-white/5 rounded-full text-zinc-400 hover:text-white hover:bg-primary hover:bg-blue-600 transition-all duration-300 transition-all">
               <Mail size={20} />
             </a>
           </div>
