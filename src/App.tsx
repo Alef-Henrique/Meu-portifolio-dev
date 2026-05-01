@@ -202,20 +202,44 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
+
+      {isMobileMenuOpen && (
+          <div
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-zinc-900 mt-4 rounded-2xl border border-white/5 p-6 overflow-hidden"
-          >
-            <div className="flex flex-col space-y-4">
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="fixed top-0 left-0 w-full bg-zinc-900 z-50 p-6"
+              >
+            <div className="flex flex-col space-y-6 mt-6">
               {navItems.map((item) => (
-                <a 
-                  key={item.id} 
+                <a
+                  key={item.id}
                   href={`#${item.id}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault()
+
+                    const section = document.getElementById(item.id)
+
+                    if (section) {
+                      const yOffset = -80 // ajuste por causa do navbar fixo
+                      const y =
+                        section.getBoundingClientRect().top +
+                        window.pageYOffset +
+                        yOffset
+
+                      window.scrollTo({ top: y, behavior: "smooth" })
+                    }
+
+                    setIsMobileMenuOpen(false)
+                  }}
                   className="text-lg font-medium text-zinc-400"
                 >
                   {item.label}
