@@ -312,7 +312,7 @@ export default function App() {
   const formData = new FormData(e.currentTarget);
   const data = Object.fromEntries(formData.entries());
 
-  console.log("dados enviados:", data); // 👈 DEBUG
+  console.log("dados enviados:", data); 
 
   try {
     const res = await fetch("/api/contact", {
@@ -321,7 +321,7 @@ export default function App() {
       body: JSON.stringify(data),
     });
 
-    console.log("status:", res.status); // 👈 DEBUG
+    console.log("status:", res.status); 
 
     if (res.ok) {
       setFormState('success');
