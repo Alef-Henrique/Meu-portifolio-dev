@@ -306,6 +306,7 @@ export default function App() {
 
  const handleContactSubmit = async (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault();
+  console.log("SUBMIT DISPARADO");
   setFormState('loading');
 
   const formData = new FormData(e.currentTarget);
@@ -314,7 +315,7 @@ export default function App() {
   console.log("dados enviados:", data); // 👈 DEBUG
 
   try {
-    const res = await fetch("http://localhost:3000/api/contact", {
+    const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
