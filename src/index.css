@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+/* FONTES */
+
+:root {
+  --primary: #3b82f6;
+}
+/* BASE */
+html {
+  scroll-behavior: smooth;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+body {
+  background-color: #0a0a0a;
+  color: #f4f4f5;
+  font-family: "Inter", sans-serif;
+}
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+/* UTILIDADES CUSTOM */
+className="glass rounded-2xl p-6" {
+  background: rgba(23, 23, 23, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, white, #d4d4d8, #a1a1aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
