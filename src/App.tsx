@@ -79,17 +79,36 @@ const PROJECTS: Project[] = [
 
 const EXPERIENCES: Experience[] = [
   {
-    company: "TechGlobal Solutions",
+    company: "Autônomo (PJ)",
     role: "Desenvolvedor Front-End",
-    period: "2024 - Presente",
-    description: "Liderança técnica de squads front-end, definindo arquiteturas baseadas em Micro-frontends e garantindo padrões de acessibilidade WCAG."
+    period: "2026 - Presente",
+    description: "Atuação como desenvolvedor front-end em projetos para empresas e clientes individuais, desenvolvendo aplicações web modernas, responsivas e focadas na experiência do usuário."
   },
   {
-    company: "Startup Flow",
+    company: "Testes manuais e automatizados",
+    role: "Curso técnico - E2E Treinamentos",
+    period: "Novembro 2025",
+    description: "Domínio do ciclo de vida de testes (STLC), com foco em garantir a qualidade da experiência do usuário. Desenvolvi habilidades em testes funcionais manuais e avancei para a automação de processos, utilizando ferramentas que otimizam o tempo de entrega e elevam o padrão técnico dos projetos web."
+  },
+    {
+    company: "Autônomo (PJ)",
     role: "Desenvolvedor Front-End",
-    period: "2023 - 2024",
-    description: "Desenvolvimento de interfaces modernas e responsivas, focando em performance e melhores práticas de SEO."
+    period: "janeiro 2025",
+    description: "Iniciei minha trajetória em 2024 com projetos para redes próximas, evoluindo rapidamente de contratos familiares para o desenvolvimento de soluções web modernas no mercado corporativo."
+  },
+  {
+    company: "Dev Club",
+    role: "Curso Dev Club - Front-End Avançado",
+    period: "Outubro 2024",
+    description: "Concluí a formação de Front-end Avançado na Dev Club, onde dominei o ecossistema do React para criar aplicações dinâmicas e profissionais. Minha atuação foca em entregar código limpo em TypeScript, interfaces fluidas e soluções prontas para produção, unindo design moderno e eficiência técnica."
+  },
+    {
+    company: "Estudos na plataforma Udemy",
+    role: "Curso Web Front-end Fundamentos HTML CSS JS",
+    period: "Junho 2023",
+    description: "Evoluí minhas habilidades em HTML, CSS e JavaScript através de cursos especializados na Udemy. Essa trajetória foi marcada pela criação de projetos reais e pessoais, onde transformei conceitos técnicos em soluções visuais modernas e interativas."
   }
+
 ];
 
 // --- Components ---
