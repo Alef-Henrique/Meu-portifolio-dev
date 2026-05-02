@@ -490,15 +490,17 @@ export default function App() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-square bg-zinc-900 rounded-[3rem] overflow-hidden rotate-3 relative z-10">
-                <img 
-                alt="Profile" 
-                className="w-full h-full object-cover" 
+          <div className="relativew-full md:w-auto flex justify-center">
+            <div className="w-full h- full bg-zinc-900 rounded-[3rem] overflow-hidden">
+              <img
+                alt="Profile"
+                className="w-full h-full object-cover"
                 src="/Foto-Perfil.png"
-                />
-              
+              />
             </div>
-            <div className="absolute top-1/2 -right-8 -translate-y-1/2 w-full h-full border-2 border-primary/30 rounded-[3rem] -z-0 -rotate-3" />
+
+            <div className="absolute inset-0 border-2 border-primary/30 rounded-[3rem] translate-x-4 translate-y-3 rotate-3" />
+          </div>
           </motion.div>
         </div>
       </section>
