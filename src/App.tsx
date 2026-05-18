@@ -1,11 +1,12 @@
 import { useScrollReveal } from "./hooks/useScrollReveal";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { 
+  ShieldCheck,
   Github, 
   Linkedin, 
   Mail, 
   ExternalLink, 
-  ChevronRight, 
   Code2, 
   Layers, 
   Smartphone, 
@@ -14,7 +15,7 @@ import {
   Menu,
   X
 } from "lucide-react";
-import { useState, useEffect, type ReactNode, type FormEvent } from "react";
+import { useState, useEffect, useRef, type ReactNode, type FormEvent } from "react";
 import { cn } from "./lib/utils";
 
 // --- Types ---
@@ -42,8 +43,8 @@ const PROJECTS: Project[] = [
 {
   id: "1",
   title: "Portfólio Profissional de Saxofonista",
-  description: "Site desenvolvido para apresentar o trabalho artístico de forma profissional, incluindo eventos, repertório musical, história do artista e canal direto para contato.",
-  image: "sax-site.png",
+  description: "Site desenvolvido para apresentar o trabalho artístico de forma profissional.",
+  image: "assets/sax-site.png",
   category: "Site Institucional",
   problem: "Dificuldade em apresentar o trabalho artístico de forma profissional e centralizar informações como eventos, repertório e contato em um único lugar.",
   result: "Criação de um site moderno e responsivo que fortalece a presença digital, facilita o contato com clientes e valoriza a imagem profissional do artista.",
@@ -54,8 +55,8 @@ const PROJECTS: Project[] = [
 {
   id: "vita-nutricao",
   title: "VITA+ Plataforma de Nutrição",
-  description: "Landing page moderna para uma plataforma de saúde e bem-estar, com foco em nutrição, movimento e experiência do usuário.",
-  image: "saude-site.png", // 👈 usa print do seu site
+  description: "Landing page moderna para uma plataforma de saúde e bem-estar.",
+  image: "assets/saude-site.png", // 👈 usa print do seu site
   category: "Landing Page Premium",
   problem: "Necessidade de comunicar uma proposta de saúde de forma clara, moderna e confiável para atrair e engajar usuários.",
   result: "Criação de uma interface elegante e estratégica que transmite autoridade, melhora a experiência do usuário e aumenta o engajamento com a plataforma.",
@@ -66,15 +67,53 @@ const PROJECTS: Project[] = [
 {
   id: "lumina-advogados",
   title: "Lumina Assessoria Jurídica",
-  description: "Site institucional desenvolvido para escritório jurídico, com foco em credibilidade, clareza de serviços e captação de clientes.",
-  image: "direito-site.png",
+  description: "Site institucional desenvolvido para escritório jurídico.",
+  image: "assets/direito-site.png",
   category: "Site Institucional",
   problem: "Dificuldade em transmitir confiança e apresentar serviços jurídicos de forma clara e profissional no ambiente digital.",
   result: "Criação de um site moderno e estratégico que fortalece a autoridade do escritório, melhora a comunicação dos serviços e aumenta a conversão de novos clientes.",
   tech: ["React", "Tailwind", "UI/UX Design"],
   link: "https://lumina-projeto.vercel.app/",
   github: "#"
+},
+{
+  id: "Maceio-imoveis",
+  title: "Maceió Prime",
+  description: "Plataforma imobiliária moderna com foco em imóveis de alto padrão.",
+  image: "assets/imoveis-site.png",
+  category: "Plataforma Imobiliária",
+  problem: "Necessidade de criar uma presença digital premium capaz de transmitir sofisticação, confiança e facilitar a visualização dos imóveis.",
+  result: "Desenvolvimento de uma interface moderna e cinematográfica que melhora a experiência do usuário, valoriza os imóveis e fortalece a percepção da marca.",
+  tech: ["React", "Tailwind", "Framer Motion"],
+  link: "https://site-imobili-rio-macei.vercel.app/",
+  github: "https://github.com/Alef-Henrique/site-imobili-rio-macei-"
+},
+
+{
+  id: "inibgold-saude",
+  title: "Inibgold",
+  description: "Landing page premium desenvolvida para divulgação e venda de encapsulados.",
+  image: "assets/Inibgold-site.png",
+  category: "Landing Page de Produto",
+  problem: "Necessidade de criar uma presença digital estratégica para apresentar o produto de forma confiável, moderna e persuasiva, aumentando o interesse e as conversões.",
+  result: "Desenvolvimento de uma interface elegante e otimizada para vendas, fortalecendo a autoridade da marca e melhorando a experiência do usuário durante a navegação.",
+  tech: ["React", "Tailwind", "Framer Motion"],
+  link: "https://project-inib-gold.vercel.app/",
+  github: "#"
+},
+{
+  id: "codewave-agencia",
+  title: "CodeWave",
+  description: "Site institucional moderno desenvolvido para a Empresa CodeWave.",
+  image: "assets/codewave-site.png",
+  category: "Agência Web",
+  problem: "Necessidade de construir uma presença digital forte e profissional para transmitir autoridade, apresentar serviços de forma estratégica e gerar novos clientes.",
+  result: "Desenvolvimento de uma interface moderna, responsiva e visualmente impactante, fortalecendo a identidade da empresa e aumentando o potencial de captação de clientes.",
+  tech: ["React", "Tailwind", "Framer Motion"],
+  link: "https://www.codewaveagency.com.br/",
+  github: "#"
 }
+
 ];
 
 const EXPERIENCES: Experience[] = [
@@ -143,6 +182,28 @@ const SectionHeading = ({ children, subtitle }: { children: ReactNode, subtitle?
     />
   </div>
 );
+const GlobalVideoBackground = () => {
+  
+  return (
+    <div className="fixed inset-0 z-0 overflow-hidden">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="w-full h-full object-cover opacity-100"
+      >
+        <source src="./assets/video-programin.mp4" type="video/mp4" />
+      </video>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/80" />
+
+      {/* Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.18),transparent_45%)]" />
+    </div>
+  )
+}
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -248,7 +309,7 @@ const Navbar = () => {
                     const section = document.getElementById(item.id)
 
                     if (section) {
-                      const yOffset = -80 // ajuste por causa do navbar fixo
+                      const yOffset = -80 
                       const y =
                         section.getBoundingClientRect().top +
                         window.pageYOffset +
@@ -269,6 +330,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
     </nav>
+
   );
 };
 
@@ -345,7 +407,29 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 export default function App() {
 
   useScrollReveal();
-  const [formState, setFormState] = useState<'idle' | 'loading' | 'success'>('idle');
+
+  const skillsRef = useRef<HTMLDivElement>(null)
+
+  const scrollLeft = () => {
+    if (skillsRef.current) {
+      skillsRef.current.scrollBy({
+        left: -320,
+        behavior: "smooth",
+      })
+    }
+  }
+
+  const scrollRight = () => {
+    if (skillsRef.current) {
+      skillsRef.current.scrollBy({
+        left: 320,
+        behavior: "smooth",
+      })
+    }
+  }
+
+  const [formState, setFormState] = useState<
+    'idle' | 'loading' | 'success'>('idle');
 
  const handleContactSubmit = async (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault();
@@ -381,8 +465,13 @@ export default function App() {
 };
 
   return (
-       <div className="min-h-screen bg-black text-white">
+
+  <>
+    <GlobalVideoBackground />
+
+<div className="relative z-10 min-h-screen bg-transparent text-white">
       <Navbar />
+
 
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-20 px-6 overflow-hidden">
@@ -411,8 +500,8 @@ export default function App() {
             transition={{ delay: 0.2 }}
             className="text-6xl md:text-8xl lg:text-9xl font-display font-extrabold mb-8 tracking-tighter"
           >
-            <span className="text-blue-500 italic drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]"> Front-End</span> <br />
-            Developer
+            <span className="text-blue-500 italic drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]"> Desenvolvedor</span> <br />
+            Front-End
           </motion.h1>
 
           <motion.p 
@@ -495,7 +584,7 @@ export default function App() {
               <img
                 alt="Profile"
                 className="w-full h-full object-cover"
-                src="/Foto-Perfil.png"
+                src="assets/Foto-Perfil.png"
               />
             </div>
 
@@ -506,18 +595,47 @@ export default function App() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-24 px-6 bg-zinc-900/30">
+      <section id="skills" className="py-24 px-6 bg-transparent">
         <div className="max-w-7xl mx-auto">
           <SectionHeading subtitle="Stack técnica focada no que há de mais moderno.">
             Habilidades Especialistas
           </SectionHeading>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="relative">
+
+          {/* BOTÃO ESQUERDA */}
+          <button
+            onClick={scrollLeft}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20
+            bg-black/70 backdrop-blur-xl border border-white/10
+            shadow-[0_0_30px_rgba(0,0,0,0.5)]
+            p-3 rounded-full hover:bg-blue-600 transition-all duration-300"
+          >
+            <ChevronLeft />
+          </button>
+
+          {/* BOTÃO DIREITA */}
+          <button
+            onClick={scrollRight}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20
+                      bg-black/70 backdrop-blur-xl border border-white/10
+                      p-3 rounded-full hover:bg-blue-600 transition-all duration-300"
+          >
+            <ChevronRight />
+          </button>
+
+          {/* CARROSSEL */}
+          <div
+            ref={skillsRef}
+            className="flex gap-6 overflow-hidden scroll-smooth px-16"
+          >
             {[
-              { icon: <Code2 className="text-blue-400" />, title: "Core & Frameworks", list: ["JavaScript (ES6+)", "React & Next.js", "TypeScript"] },
-              { icon: <Layers className="text-purple-400" />, title: "Styling & UI", list: ["CSS3 (PostCSS)", "Design Systems", "Tailwind CSS"] },
-              { icon: <Zap className="text-yellow-400" />, title: "AI & Innovation", list: ["OpenAI", "GeminiAI", "Prompt Engineering"] },
-              { icon: <Smartphone className="text-emerald-400" />, title: "Advanced Web", list: ["Web APIs", "Performance Opt.", "Responsive Design"] }
+              { icon: <Code2 className="text-blue-400" />, title: "Fundamentos & Frameworks", list: ["JavaScript (ES6+)", "React & Next.js", "TypeScript"] },
+              { icon: <Layers className="text-purple-400" />, title: "Estilização & Interface", list: ["CSS3 (PostCSS)", "Design Systems", "Tailwind CSS"] },
+              { icon: <Zap className="text-yellow-400" />, title: "IA & Inovação", list: ["OpenAI", "GeminiAI", "Prompt Engineering"] },
+              { icon: <Smartphone className="text-emerald-400" />, title: "Web Avançada", list: ["Web APIs", "Performance Opt.", "Responsive Design"] },
+              { icon: <ShieldCheck className="text-cyan-400" />,title: "Garantia de Qualidade",list: ["Testes Manuais","Testes Automatizados","Cypress & Selenium","Validação E2E"]}
+
             ].map((skill, i) => (
               <motion.div 
                 key={skill.title}
@@ -525,7 +643,7 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 flex flex-col flex-1 bg-zinc-900 rounded-3xl border border-white/5 hover:bg-zinc-800/50 transition-colors"
+                className="min-w-[280px] max-w-[280px] p-8 flex flex-col bg-zinc-900 rounded-3xl border border-white/5 hover:bg-zinc-800/50 transition-all duration-500"
               >
                 <div className="mb-6">{skill.icon}</div>
                 <h4 className="text-xl font-bold mb-4">{skill.title}</h4>
@@ -538,6 +656,7 @@ export default function App() {
               </motion.div>
             ))}
           </div>
+        </div>
         </div>
       </section>
 
@@ -680,10 +799,11 @@ export default function App() {
             )}
           </motion.div>
         </div>
+
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-white/5">
+       <footer className="py-12 px-6 border-t border-white/5 bg-black">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
           <div className="flex flex-col items-center md:items-start group cursor-default">
             <div className="flex items-center">
@@ -717,5 +837,6 @@ export default function App() {
         </div>
       </footer>
     </div>
+  </>
   );
 }
