@@ -1,16 +1,16 @@
 import { useScrollReveal } from "./hooks/useScrollReveal";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { 
+import {
   ShieldCheck,
-  Github, 
-  Linkedin, 
-  Mail, 
-  ExternalLink, 
-  Code2, 
-  Layers, 
-  Smartphone, 
-  Zap, 
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
+  Code2,
+  Layers,
+  Smartphone,
+  Zap,
   Send,
   Menu,
   X
@@ -27,7 +27,7 @@ interface Project {
   tech: string[];
   image: string;
   problem: string;
-  result: string; 
+  result: string;
   link?: string;
   github?: string;
 }
@@ -40,79 +40,79 @@ interface Experience {
 
 // --- Data ---
 const PROJECTS: Project[] = [
-{
-  id: "1",
-  title: "Portfólio Profissional de Saxofonista",
-  description: "Site desenvolvido para apresentar o trabalho artístico de forma profissional.",
-  image: "assets/sax-site.png",
-  category: "Site Institucional",
-  problem: "Dificuldade em apresentar o trabalho artístico de forma profissional e centralizar informações como eventos, repertório e contato em um único lugar.",
-  result: "Criação de um site moderno e responsivo que fortalece a presença digital, facilita o contato com clientes e valoriza a imagem profissional do artista.",
-  tech: ["React", "Tailwind", "Framer Motion"],
-  link: "https://www.alefesilvasax.com.br/",
-  github: "https://github.com/Alef-Henrique/sax-site"
-},
-{
-  id: "vita-nutricao",
-  title: "VITA+ Plataforma de Nutrição",
-  description: "Landing page moderna para uma plataforma de saúde e bem-estar.",
-  image: "assets/saude-site.png", // 👈 usa print do seu site
-  category: "Landing Page Premium",
-  problem: "Necessidade de comunicar uma proposta de saúde de forma clara, moderna e confiável para atrair e engajar usuários.",
-  result: "Criação de uma interface elegante e estratégica que transmite autoridade, melhora a experiência do usuário e aumenta o engajamento com a plataforma.",
-  tech: ["React", "Tailwind", "UI/UX Design"],
-  link: "https://project-vita-two.vercel.app/",
-  github: "#"
-},
-{
-  id: "lumina-advogados",
-  title: "Lumina Assessoria Jurídica",
-  description: "Site institucional desenvolvido para escritório jurídico.",
-  image: "assets/direito-site.png",
-  category: "Site Institucional",
-  problem: "Dificuldade em transmitir confiança e apresentar serviços jurídicos de forma clara e profissional no ambiente digital.",
-  result: "Criação de um site moderno e estratégico que fortalece a autoridade do escritório, melhora a comunicação dos serviços e aumenta a conversão de novos clientes.",
-  tech: ["React", "Tailwind", "UI/UX Design"],
-  link: "https://lumina-projeto.vercel.app/",
-  github: "#"
-},
-{
-  id: "Maceio-imoveis",
-  title: "Maceió Prime",
-  description: "Plataforma imobiliária moderna com foco em imóveis de alto padrão.",
-  image: "assets/imoveis-site.png",
-  category: "Plataforma Imobiliária",
-  problem: "Necessidade de criar uma presença digital premium capaz de transmitir sofisticação, confiança e facilitar a visualização dos imóveis.",
-  result: "Desenvolvimento de uma interface moderna e cinematográfica que melhora a experiência do usuário, valoriza os imóveis e fortalece a percepção da marca.",
-  tech: ["React", "Tailwind", "Framer Motion"],
-  link: "https://site-imobili-rio-macei.vercel.app/",
-  github: "https://github.com/Alef-Henrique/site-imobili-rio-macei-"
-},
+  {
+    id: "1",
+    title: "Portfólio Profissional de Saxofonista",
+    description: "Site desenvolvido para apresentar o trabalho artístico de forma profissional.",
+    image: "assets/sax-site.png",
+    category: "Site Institucional",
+    problem: "Dificuldade em apresentar o trabalho artístico de forma profissional e centralizar informações como eventos, repertório e contato em um único lugar.",
+    result: "Criação de um site moderno e responsivo que fortalece a presença digital, facilita o contato com clientes e valoriza a imagem profissional do artista.",
+    tech: ["React", "Tailwind", "Framer Motion"],
+    link: "https://www.alefesilvasax.com.br/",
+    github: "https://github.com/Alef-Henrique/sax-site"
+  },
+  {
+    id: "vita-nutricao",
+    title: "VITA+ Plataforma de Nutrição",
+    description: "Landing page moderna para uma plataforma de saúde e bem-estar.",
+    image: "assets/saude-site.png", // 👈 usa print do seu site
+    category: "Landing Page Premium",
+    problem: "Necessidade de comunicar uma proposta de saúde de forma clara, moderna e confiável para atrair e engajar usuários.",
+    result: "Criação de uma interface elegante e estratégica que transmite autoridade, melhora a experiência do usuário e aumenta o engajamento com a plataforma.",
+    tech: ["React", "Tailwind", "UI/UX Design"],
+    link: "https://project-vita-two.vercel.app/",
+    github: "#"
+  },
+  {
+    id: "lumina-advogados",
+    title: "Lumina Assessoria Jurídica",
+    description: "Site institucional desenvolvido para escritório jurídico.",
+    image: "assets/direito-site.png",
+    category: "Site Institucional",
+    problem: "Dificuldade em transmitir confiança e apresentar serviços jurídicos de forma clara e profissional no ambiente digital.",
+    result: "Criação de um site moderno e estratégico que fortalece a autoridade do escritório, melhora a comunicação dos serviços e aumenta a conversão de novos clientes.",
+    tech: ["React", "Tailwind", "UI/UX Design"],
+    link: "https://lumina-projeto.vercel.app/",
+    github: "#"
+  },
+  {
+    id: "Maceio-imoveis",
+    title: "Maceió Prime",
+    description: "Plataforma imobiliária moderna com foco em imóveis de alto padrão.",
+    image: "assets/imoveis-site.png",
+    category: "Plataforma Imobiliária",
+    problem: "Necessidade de criar uma presença digital premium capaz de transmitir sofisticação, confiança e facilitar a visualização dos imóveis.",
+    result: "Desenvolvimento de uma interface moderna e cinematográfica que melhora a experiência do usuário, valoriza os imóveis e fortalece a percepção da marca.",
+    tech: ["React", "Tailwind", "Framer Motion"],
+    link: "https://site-imobili-rio-macei.vercel.app/",
+    github: "https://github.com/Alef-Henrique/site-imobili-rio-macei-"
+  },
 
-{
-  id: "inibgold-saude",
-  title: "Inibgold",
-  description: "Landing page premium desenvolvida para divulgação e venda de encapsulados.",
-  image: "assets/Inibgold-site.png",
-  category: "Landing Page de Produto",
-  problem: "Necessidade de criar uma presença digital estratégica para apresentar o produto de forma confiável, moderna e persuasiva, aumentando o interesse e as conversões.",
-  result: "Desenvolvimento de uma interface elegante e otimizada para vendas, fortalecendo a autoridade da marca e melhorando a experiência do usuário durante a navegação.",
-  tech: ["React", "Tailwind", "Framer Motion"],
-  link: "https://project-inib-gold.vercel.app/",
-  github: "#"
-},
-{
-  id: "codewave-agencia",
-  title: "CodeWave",
-  description: "Site institucional moderno desenvolvido para a Empresa CodeWave.",
-  image: "assets/codewave-site.png",
-  category: "Agência Web",
-  problem: "Necessidade de construir uma presença digital forte e profissional para transmitir autoridade, apresentar serviços de forma estratégica e gerar novos clientes.",
-  result: "Desenvolvimento de uma interface moderna, responsiva e visualmente impactante, fortalecendo a identidade da empresa e aumentando o potencial de captação de clientes.",
-  tech: ["React", "Tailwind", "Framer Motion"],
-  link: "https://www.codewaveagency.com.br/",
-  github: "#"
-}
+  {
+    id: "inibgold-saude",
+    title: "Inibgold",
+    description: "Landing page premium desenvolvida para divulgação e venda de encapsulados.",
+    image: "assets/Inibgold-site.png",
+    category: "Landing Page de Produto",
+    problem: "Necessidade de criar uma presença digital estratégica para apresentar o produto de forma confiável, moderna e persuasiva, aumentando o interesse e as conversões.",
+    result: "Desenvolvimento de uma interface elegante e otimizada para vendas, fortalecendo a autoridade da marca e melhorando a experiência do usuário durante a navegação.",
+    tech: ["React", "Tailwind", "Framer Motion"],
+    link: "https://project-inib-gold.vercel.app/",
+    github: "#"
+  },
+  {
+    id: "codewave-agencia",
+    title: "CodeWave",
+    description: "Site institucional moderno desenvolvido para a Empresa CodeWave.",
+    image: "assets/codewave-site.png",
+    category: "Agência Web",
+    problem: "Necessidade de construir uma presença digital forte e profissional para transmitir autoridade, apresentar serviços de forma estratégica e gerar novos clientes.",
+    result: "Desenvolvimento de uma interface moderna, responsiva e visualmente impactante, fortalecendo a identidade da empresa e aumentando o potencial de captação de clientes.",
+    tech: ["React", "Tailwind", "Framer Motion"],
+    link: "https://www.codewaveagency.com.br/",
+    github: "#"
+  }
 
 ];
 
@@ -129,7 +129,7 @@ const EXPERIENCES: Experience[] = [
     period: "Novembro 2025",
     description: "Domínio do ciclo de vida de testes (STLC), com foco em garantir a qualidade da experiência do usuário. Desenvolvi habilidades em testes funcionais manuais e avancei para a automação de processos, utilizando ferramentas que otimizam o tempo de entrega e elevam o padrão técnico dos projetos web."
   },
-    {
+  {
     company: "Autônomo (PJ)",
     role: "Desenvolvedor Front-End",
     period: "janeiro 2025",
@@ -141,7 +141,7 @@ const EXPERIENCES: Experience[] = [
     period: "Outubro 2024",
     description: "Concluí a formação de Front-end Avançado na Dev Club, onde dominei o ecossistema do React para criar aplicações dinâmicas e profissionais. Minha atuação foca em entregar código limpo em TypeScript, interfaces fluidas e soluções prontas para produção, unindo design moderno e eficiência técnica."
   },
-    {
+  {
     company: "Estudos na plataforma Udemy",
     role: "Curso Web Front-end Fundamentos HTML CSS JS",
     period: "Junho 2023",
@@ -154,7 +154,7 @@ const EXPERIENCES: Experience[] = [
 
 const SectionHeading = ({ children, subtitle }: { children: ReactNode, subtitle?: string }) => (
   <div className="mb-12">
-    <motion.h2 
+    <motion.h2
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -163,7 +163,7 @@ const SectionHeading = ({ children, subtitle }: { children: ReactNode, subtitle?
       {children}
     </motion.h2>
     {subtitle && (
-      <motion.p 
+      <motion.p
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -173,7 +173,7 @@ const SectionHeading = ({ children, subtitle }: { children: ReactNode, subtitle?
         {subtitle}
       </motion.p>
     )}
-    <motion.div 
+    <motion.div
       initial={{ width: 0 }}
       whileInView={{ width: 80 }}
       viewport={{ once: true }}
@@ -183,7 +183,7 @@ const SectionHeading = ({ children, subtitle }: { children: ReactNode, subtitle?
   </div>
 );
 const GlobalVideoBackground = () => {
-  
+
   return (
     <div className="fixed inset-0 z-0 overflow-hidden">
       <video
@@ -250,8 +250,8 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-10 text-sm font-semibold tracking-wide">
           {navItems.map((item) => (
-            <a 
-              key={item.id} 
+            <a
+              key={item.id}
               href={`#${item.id}`}
               className="text-zinc-400 hover:text-white transition-colors relative group"
             >
@@ -260,8 +260,8 @@ const Navbar = () => {
             </a>
           ))}
 
-          <a 
-            href="#contato" 
+          <a
+            href="#contato"
             className="bg-white text-black px-5 py-2.5 rounded-full font-semibold text-xs
                       hover:bg-blue-500 hover:text-white
                       transition-all duration-300
@@ -273,7 +273,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <button
           className="md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -284,20 +284,20 @@ const Navbar = () => {
       {/* Mobile Menu */}
 
       {isMobileMenuOpen && (
-          <div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-        )}
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
       <AnimatePresence>
         {isMobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="fixed top-0 left-0 w-full bg-zinc-900 z-50 p-6"
-              >
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed top-0 left-0 w-full bg-zinc-900 z-50 p-6"
+          >
             <div className="flex flex-col space-y-6 mt-6">
               {navItems.map((item) => (
                 <a
@@ -309,7 +309,7 @@ const Navbar = () => {
                     const section = document.getElementById(item.id)
 
                     if (section) {
-                      const yOffset = -80 
+                      const yOffset = -80
                       const y =
                         section.getBoundingClientRect().top +
                         window.pageYOffset +
@@ -344,26 +344,26 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       className="group bg-zinc-900 border border-white/5 rounded-3xl overflow-hidden hover:border-primary/50 transition-colors duration-500 h-full flex flex-col"
     >
       <div className="relative h-[260px] overflow-hidden group">
-  
-  {/* IMAGE */}
-      <img 
-        src={project.image} 
-        alt={project.title}
-        className="w-full h-full object-contain bg-black transition-transform duration-500 group-hover:scale-105"
-      />
 
-      {/* OVERLAY SUAVE */}
-      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500" />
+        {/* IMAGE */}
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-contain bg-black transition-transform duration-500 group-hover:scale-105"
+        />
 
-      {/* TAG (SÓ NO HOVER) */}
-      <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition duration-500">
-        <span className="bg-primary/20 backdrop-blur-md border border-primary/30 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-          {project.category}
-        </span>
+        {/* OVERLAY SUAVE */}
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500" />
+
+        {/* TAG (SÓ NO HOVER) */}
+        <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition duration-500">
+          <span className="bg-primary/20 backdrop-blur-md border border-primary/30 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            {project.category}
+          </span>
+        </div>
+
       </div>
 
-    </div>
-      
       <div className="p-8 flex flex-col flex-1">
         <h3 className="text-2xl font-display font-bold mb-3">{project.title}</h3>
         <p className="text-zinc-400 mb-6 line-clamp-2 leading-relaxedtext-zinc-400 mb-6 leading-relaxed min-h-[56px]">
@@ -431,412 +431,416 @@ export default function App() {
   const [formState, setFormState] = useState<
     'idle' | 'loading' | 'success'>('idle');
 
- const handleContactSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  console.log("SUBMIT DISPARADO");
-  setFormState('loading');
+  const handleContactSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("SUBMIT DISPARADO");
+    setFormState('loading');
 
-  const formData = new FormData(e.currentTarget);
-  const data = Object.fromEntries(formData.entries());
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
 
-  console.log("dados enviados:", data); 
+    console.log("dados enviados:", data);
 
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    console.log("status:", res.status); 
+      console.log("status:", res.status);
 
-    if (res.ok) {
-      setFormState('success');
-      alert("Mensagem enviada 🚀"); // opcional
-    } else {
-      console.error("Erro no servidor");
+      if (res.ok) {
+        setFormState('success');
+        alert("Mensagem enviada 🚀"); // opcional
+      } else {
+        console.error("Erro no servidor");
+        setFormState('idle');
+      }
+
+    } catch (err) {
+      console.error("erro:", err);
       setFormState('idle');
     }
-
-  } catch (err) {
-    console.error("erro:", err);
-    setFormState('idle');
-  }
-};
+  };
 
   return (
 
-  <>
-    <GlobalVideoBackground />
+    <>
+      <GlobalVideoBackground />
 
-<div className="relative z-10 min-h-screen bg-transparent text-white">
-      <Navbar />
+      <div className="relative z-10 min-h-screen bg-transparent text-white">
+        <Navbar />
 
 
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-20 px-6 overflow-hidden">
-        {/* Background blobs */}
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-500/18 blur-[140px] rounded-full" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-500/10 blur-[140px] rounded-full" />
-        <div className="max-w-7xl mx-auto w-full text-center">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center mb-8"
-          >
-            <div className="px-4 py-2 bg-zinc-900/50 backdrop-blur rounded-full border border-white/5 text-blue-500 text-xs font-bold uppercase tracking-widest flex items-center space-x-2">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary hover:bg-blue-600 transition-all duration-300 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary hover:bg-blue-600 transition-all duration-300"></span>
-              </span>
-              <span>Disponível para projetos</span>
-            </div>
-          </motion.div>
-
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-display font-extrabold mb-8 tracking-tighter"
-          >
-            <span className="text-blue-500 italic drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]"> Desenvolvedor</span> <br />
-            Front-End
-          </motion.h1>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
-          >
-            Construindo experiências digitais excepcionais através de código limpo, 
-            performance extrema e design centrado no usuário.
-          </motion.p>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
-          >
-            <a href="#projetos" className="w-full sm:w-auto bg-primary hover:bg-blue-600 transition-all duration-300 text-white py-4 px-10 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-primary/20 transition-all flex items-center justify-center space-x-2 group">
-              <span>Ver Projetos</span>
-              <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a href="#contato" className="w-full sm:w-auto border border-white/10 py-4 px-10 rounded-full font-bold text-lg hover:bg-white/5 transition-all">
-              Entrar em contato
-            </a>
-          </motion.div>
-        </div>
-
-        <motion.div 
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-zinc-500"
-        >
-          <div className="w-6 h-10 border-2 border-zinc-700 rounded-full flex justify-center p-1">
-            <div className="w-1 h-2 bg-primary hover:bg-blue-600 transition-all duration-300 rounded-full" />
-          </div>
-        </motion.div>
-      </section>
-
-      {/* About Section */}
-      <section id="sobre" className="py-24 px-6 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <SectionHeading>Sobre Mim</SectionHeading>
-            <p className="text-zinc-400 text-lg leading-relaxed mb-6">
-              Com mais de 3 anos de experiência no ecossistema web, transformo problemas 
-              complexos em soluções elegantes e escaláveis. Minha abordagem une a precisão 
-              técnica da engenharia com a sensibilidade estética do design.
-            </p>
-            <p className="text-zinc-400 text-lg leading-relaxed mb-8">
-              Foco em resultados: Não se trata apenas de escrever código, mas de 
-              gerar valor para o negócio através de interfaces rápidas, acessíveis 
-              e intuitivas.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-6">
-              <div className="p-6 bg-zinc-900 rounded-2xl border border-white/5">
-                <span className="text-3xl font-display font-bold text-blue-500 block">30+</span>
-                <span className="text-zinc-500 text-sm">Projetos Entregues</span>
-              </div>
-              <div className="p-6 bg-zinc-900 rounded-2xl border border-white/5">
-                <span className="text-3xl font-display font-bold text-blue-500 block">3+</span>
-                <span className="text-zinc-500 text-sm">Anos de React</span>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-          <div className="relativew-full md:w-auto flex justify-center">
-            <div className="w-full h- full bg-zinc-900 rounded-[3rem] overflow-hidden">
-              <img
-                alt="Profile"
-                className="w-full h-full object-cover"
-                src="assets/Foto-Perfil.png"
-              />
-            </div>
-
-            <div className="absolute inset-0 border-2 border-primary/30 rounded-[3rem] translate-x-4 translate-y-3 rotate-3" />
-          </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="py-24 px-6 bg-transparent">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading subtitle="Stack técnica focada no que há de mais moderno.">
-            Habilidades Especialistas
-          </SectionHeading>
-
-          <div className="relative">
-
-          {/* BOTÃO ESQUERDA */}
-          <button
-            onClick={scrollLeft}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-20
-            bg-black/70 backdrop-blur-xl border border-white/10
-            shadow-[0_0_30px_rgba(0,0,0,0.5)]
-            p-3 rounded-full hover:bg-blue-600 transition-all duration-300"
-          >
-            <ChevronLeft />
-          </button>
-
-          {/* BOTÃO DIREITA */}
-          <button
-            onClick={scrollRight}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-20
-                      bg-black/70 backdrop-blur-xl border border-white/10
-                      p-3 rounded-full hover:bg-blue-600 transition-all duration-300"
-          >
-            <ChevronRight />
-          </button>
-
-          {/* CARROSSEL */}
-          <div
-            ref={skillsRef}
-            className="flex gap-6 overflow-hidden scroll-smooth px-16"
-          >
-            {[
-              { icon: <Code2 className="text-blue-400" />, title: "Fundamentos & Frameworks", list: ["JavaScript (ES6+)", "React & Next.js", "TypeScript"] },
-              { icon: <Layers className="text-purple-400" />, title: "Estilização & Interface", list: ["CSS3 (PostCSS)", "Design Systems", "Tailwind CSS"] },
-              { icon: <Zap className="text-yellow-400" />, title: "IA & Inovação", list: ["OpenAI", "GeminiAI", "Prompt Engineering"] },
-              { icon: <Smartphone className="text-emerald-400" />, title: "Web Avançada", list: ["Web APIs", "Performance Opt.", "Responsive Design"] },
-              { icon: <ShieldCheck className="text-cyan-400" />,title: "Garantia de Qualidade",list: ["Testes Manuais","Testes Automatizados","Cypress & Selenium","Validação E2E"]}
-
-            ].map((skill, i) => (
-              <motion.div 
-                key={skill.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="min-w-[280px] max-w-[280px] p-8 flex flex-col bg-zinc-900 rounded-3xl border border-white/5 hover:bg-zinc-800/50 transition-all duration-500"
-              >
-                <div className="mb-6">{skill.icon}</div>
-                <h4 className="text-xl font-bold mb-4">{skill.title}</h4>
-                <ul className="space-y-2 text-zinc-500 text-sm">
-                  {skill.list.map(item => <li key={item} className="flex items-center space-x-2">
-                    <div className="w-1 h-1 bg-primary hover:bg-blue-600 transition-all duration-300 rounded-full" />
-                    <span>{item}</span>
-                  </li>)}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projetos" className="py-24 px-6 max-w-7xl mx-auto">
-        <SectionHeading subtitle="Confira alguns dos principais projetos que lidero atualmente.">
-          Projetos em Destaque
-        </SectionHeading>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-          {PROJECTS.map((project, i) => (
-            <div key={project.id}>
-              <ProjectCard project={project} index={i} />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Trajectory */}
-      <section id="trajetoria" className="py-24 px-6 max-w-5xl mx-auto">
-        <SectionHeading>Minha Trajetória</SectionHeading>
-        
-        <div className="space-y-0 relative before:absolute before:left-1/2 before:-translate-x-1/2 before:top-0 before:h-full before:w-[2px] before:bg-gradient-to-b before:from-primary before:via-blue-500 before:to-transparent">
-          {EXPERIENCES.map((exp, i) => (
-            <motion.div 
-              key={exp.company}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className={cn(
-                "relative flex flex-col md:flex-row items-center mb-16",
-                i % 2 === 0 ? "md:flex-row-reverse" : ""
-              )}
+        {/* Hero Section */}
+        <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-20 px-6 overflow-hidden">
+          {/* Background blobs */}
+          <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-500/18 blur-[140px] rounded-full" />
+          <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-500/10 blur-[140px] rounded-full" />
+          <div className="max-w-7xl mx-auto w-full text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="flex justify-center mb-8"
             >
-              <div className="absolute left-0 md:left-1/2 -ml-3 w-6 h-6 bg-black border-4 border-primary rounded-full z-10" />
-              <div className="w-full md:w-1/2 px-12">
-                <div className="p-8 bg-zinc-900 rounded-3xl border border-white/5 hover:border-primary/20 transition-all">
-                  <span className="text-blue-500 text-xs font-bold uppercase tracking-widest">{exp.period}</span>
-                  <h4 className="text-2xl font-bold mt-2 mb-1">{exp.role}</h4>
-                  <span className="text-zinc-500 font-medium block mb-4">{exp.company}</span>
-                  <p className="text-zinc-400 text-sm leading-relaxed">{exp.description}</p>
+              <div className="px-4 py-2 bg-zinc-900/50 backdrop-blur rounded-full border border-white/5 text-blue-500 text-xs font-bold uppercase tracking-widest flex items-center space-x-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary hover:bg-blue-600 transition-all duration-300 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary hover:bg-blue-600 transition-all duration-300"></span>
+                </span>
+                <span>Disponível para projetos</span>
+              </div>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold mb-4 tracking-tight text-center leading-none px-4 w-full">
+                
+              <span className="text-blue-500 italic drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+                Desenvolvedor
+              </span>
+
+              <br />
+
+              Front-End
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+            >
+              Construindo experiências digitais excepcionais através de código limpo,
+              performance extrema e design centrado no usuário.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
+            >
+              <a href="#projetos" className="w-full sm:w-auto bg-primary hover:bg-blue-600 transition-all duration-300 text-white py-4 px-10 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-primary/20 transition-all flex items-center justify-center space-x-2 group">
+                <span>Ver Projetos</span>
+                <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a href="#contato" className="w-full sm:w-auto border border-white/10 py-4 px-10 rounded-full font-bold text-lg hover:bg-white/5 transition-all">
+                Entrar em contato
+              </a>
+            </motion.div>
+          </div>
+
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 text-zinc-500"
+          >
+            <div className="w-6 h-10 border-2 border-zinc-700 rounded-full flex justify-center p-1">
+              <div className="w-1 h-2 bg-primary hover:bg-blue-600 transition-all duration-300 rounded-full" />
+            </div>
+          </motion.div>
+        </section>
+
+        {/* About Section */}
+        <section id="sobre" className="py-24 px-6 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <SectionHeading>Sobre Mim</SectionHeading>
+              <p className="text-zinc-400 text-lg leading-relaxed mb-6">
+                Com mais de 3 anos de experiência no ecossistema web, transformo problemas
+                complexos em soluções elegantes e escaláveis. Minha abordagem une a precisão
+                técnica da engenharia com a sensibilidade estética do design.
+              </p>
+              <p className="text-zinc-400 text-lg leading-relaxed mb-8">
+                Foco em resultados: Não se trata apenas de escrever código, mas de
+                gerar valor para o negócio através de interfaces rápidas, acessíveis
+                e intuitivas.
+              </p>
+
+              <div className="grid grid-cols-2 gap-6">
+                <div className="p-6 bg-zinc-900 rounded-2xl border border-white/5">
+                  <span className="text-3xl font-display font-bold text-blue-500 block">30+</span>
+                  <span className="text-zinc-500 text-sm">Projetos Entregues</span>
+                </div>
+                <div className="p-6 bg-zinc-900 rounded-2xl border border-white/5">
+                  <span className="text-3xl font-display font-bold text-blue-500 block">3+</span>
+                  <span className="text-zinc-500 text-sm">Anos de React</span>
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
-      </section>
 
-      {/* Contact Section */}
-      <section id="contato" className="py-24 px-6 bg-gradient-to-b from-transparent to-blue-400/5">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-7xl font-display font-extrabold mb-6"
+              className="relative"
             >
-              Vamos <span className="text-blue-500 italic">criar</span> algo <br /> extraordinário?
-            </motion.h2>
-            <p className="text-zinc-400 text-lg">
-              Estou aberto a novas oportunidades e parcerias.
-            </p>
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="bg-zinc-900 rounded-3xl border border-white/5 p-8 md:p-12 shadow-2xl"
-          >
-            {formState === 'success' ? (
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-center py-20"
-              >
-                <div className="w-20 h-20 bg-emerald-500/20 text-emerald-500 flex items-center justify-center rounded-full mx-auto mb-6">
-                  <Send size={40} />
-                </div>
-                <h3 className="text-3xl font-bold mb-4">Mensagem Enviada!</h3>
-                <p className="text-zinc-400 max-w-sm mx-auto">
-                  Entrarei em contato com você o mais breve possível.
-                </p>
-                <button 
-                  onClick={() => setFormState('idle')}
-                  className="mt-8 text-blue-500 font-bold hover:underline"
-                >
-                  Enviar outra mensagem
-                </button>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleContactSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-zinc-500 uppercase px-1">Nome</label>
-                    <input 
-                      required
-                      name="name"
-                      type="text" 
-                      placeholder="Seu nome"
-                      className="w-full bg-zinc-900 border border-white/5 rounded-2xl px-6 py-4 outline-none focus:border-primary transition-colors text-white"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-zinc-500 uppercase px-1">E-mail</label>
-                    <input 
-                      required
-                      name="email"
-                      type="email" 
-                      placeholder="seu@email.com"
-                      className="w-full bg-zinc-900 border border-white/5 rounded-2xl px-6 py-4 outline-none focus:border-primary transition-colors text-white"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-zinc-500 uppercase px-1">Mensagem</label>
-                  <textarea 
-                    required
-                    name="message"
-                    placeholder="Como posso ajudar seu projeto?"
-                    rows={6}
-                    className="w-full bg-zinc-900 border border-white/5 rounded-2xl px-6 py-4 outline-none focus:border-primary transition-colors text-white resize-none"
+              <div className="relativew-full md:w-auto flex justify-center">
+                <div className="w-full h- full bg-zinc-900 rounded-[3rem] overflow-hidden">
+                  <img
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                    src="assets/Foto-Perfil.png"
                   />
                 </div>
-                <button 
-                  disabled={formState === 'loading'}
-                  className="w-full bg-primary hover:bg-blue-600 transition-all duration-300 text-white py-5 rounded-2xl font-bold text-xl cursor-pointer hover:shadow-2xl hover:shadow-primary/30 transition-all flex items-center justify-center space-x-3 disabled:opacity-70"
-                >
-                  {formState === 'loading' ? (
-                    <div className="w-6 h-6 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                  ) : (
-                    <>
-                      <span>Enviar Mensagem</span>
-                      <Send size={24} />
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </motion.div>
-        </div>
 
-      </section>
+                <div className="absolute inset-0 border-2 border-primary/30 rounded-[3rem] translate-x-4 translate-y-3 rotate-3" />
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
-      {/* Footer */}
-       <footer className="py-12 px-6 border-t border-white/5 bg-black">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-          <div className="flex flex-col items-center md:items-start group cursor-default">
-            <div className="flex items-center">
-              <span className="text-2xl font-display font-black tracking-tighter text-blue-500">Alefe</span>
-              <div className="mx-2 w-[1px] h-4 bg-zinc-800" />
-              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-400">DevFront</span>
+        {/* Skills Section */}
+        <section id="skills" className="py-24 px-6 bg-transparent">
+          <div className="max-w-7xl mx-auto">
+            <SectionHeading subtitle="Stack técnica focada no que há de mais moderno.">
+              Habilidades Especialistas
+            </SectionHeading>
+
+            <div className="relative">
+
+              {/* BOTÃO ESQUERDA */}
+              <button
+                onClick={scrollLeft}
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-20
+            bg-black/70 backdrop-blur-xl border border-white/10
+            shadow-[0_0_30px_rgba(0,0,0,0.5)]
+            p-3 rounded-full hover:bg-blue-600 transition-all duration-300"
+              >
+                <ChevronLeft />
+              </button>
+
+              {/* BOTÃO DIREITA */}
+              <button
+                onClick={scrollRight}
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-20
+                      bg-black/70 backdrop-blur-xl border border-white/10
+                      p-3 rounded-full hover:bg-blue-600 transition-all duration-300"
+              >
+                <ChevronRight />
+              </button>
+
+              {/* CARROSSEL */}
+              <div
+                ref={skillsRef}
+                className="flex gap-6 overflow-hidden scroll-smooth px-16"
+              >
+                {[
+                  { icon: <Code2 className="text-blue-400" />, title: "Fundamentos & Frameworks", list: ["JavaScript (ES6+)", "React & Next.js", "TypeScript"] },
+                  { icon: <Layers className="text-purple-400" />, title: "Estilização & Interface", list: ["CSS3 (PostCSS)", "Design Systems", "Tailwind CSS"] },
+                  { icon: <Zap className="text-yellow-400" />, title: "IA & Inovação", list: ["OpenAI", "GeminiAI", "Prompt Engineering"] },
+                  { icon: <Smartphone className="text-emerald-400" />, title: "Web Avançada", list: ["Web APIs", "Performance Opt.", "Responsive Design"] },
+                  { icon: <ShieldCheck className="text-cyan-400" />, title: "Garantia de Qualidade", list: ["Testes Manuais", "Testes Automatizados", "Cypress & Selenium", "Validação E2E"] }
+
+                ].map((skill, i) => (
+                  <motion.div
+                    key={skill.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="min-w-[280px] max-w-[280px] p-8 flex flex-col bg-zinc-900 rounded-3xl border border-white/5 hover:bg-zinc-800/50 transition-all duration-500"
+                  >
+                    <div className="mb-6">{skill.icon}</div>
+                    <h4 className="text-xl font-bold mb-4">{skill.title}</h4>
+                    <ul className="space-y-2 text-zinc-500 text-sm">
+                      {skill.list.map(item => <li key={item} className="flex items-center space-x-2">
+                        <div className="w-1 h-1 bg-primary hover:bg-blue-600 transition-all duration-300 rounded-full" />
+                        <span>{item}</span>
+                      </li>)}
+                    </ul>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-            <span className="text-[10px] text-zinc-600 mt-2">Especialista Front-End</span>
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projetos" className="py-24 px-6 max-w-7xl mx-auto">
+          <SectionHeading subtitle="Confira alguns dos principais projetos que lidero atualmente.">
+            Projetos em Destaque
+          </SectionHeading>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+            {PROJECTS.map((project, i) => (
+              <div key={project.id}>
+                <ProjectCard project={project} index={i} />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Trajectory */}
+        <section id="trajetoria" className="py-24 px-6 max-w-5xl mx-auto">
+          <SectionHeading>Minha Trajetória</SectionHeading>
+
+          <div className="space-y-0 relative before:absolute before:left-1/2 before:-translate-x-1/2 before:top-0 before:h-full before:w-[2px] before:bg-gradient-to-b before:from-primary before:via-blue-500 before:to-transparent">
+            {EXPERIENCES.map((exp, i) => (
+              <motion.div
+                key={exp.company}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className={cn(
+                  "relative flex flex-col md:flex-row items-center mb-16",
+                  i % 2 === 0 ? "md:flex-row-reverse" : ""
+                )}
+              >
+                <div className="absolute left-0 md:left-1/2 -ml-3 w-6 h-6 bg-black border-4 border-primary rounded-full z-10" />
+                <div className="w-full md:w-1/2 px-12">
+                  <div className="p-8 bg-zinc-900 rounded-3xl border border-white/5 hover:border-primary/20 transition-all">
+                    <span className="text-blue-500 text-xs font-bold uppercase tracking-widest">{exp.period}</span>
+                    <h4 className="text-2xl font-bold mt-2 mb-1">{exp.role}</h4>
+                    <span className="text-zinc-500 font-medium block mb-4">{exp.company}</span>
+                    <p className="text-zinc-400 text-sm leading-relaxed">{exp.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contato" className="py-24 px-6 bg-gradient-to-b from-transparent to-blue-400/5">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-5xl md:text-7xl font-display font-extrabold mb-6"
+              >
+                Vamos <span className="text-blue-500 italic">criar</span> algo <br /> extraordinário?
+              </motion.h2>
+              <p className="text-zinc-400 text-lg">
+                Estou aberto a novas oportunidades e parcerias.
+              </p>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="bg-zinc-900 rounded-3xl border border-white/5 p-8 md:p-12 shadow-2xl"
+            >
+              {formState === 'success' ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-center py-20"
+                >
+                  <div className="w-20 h-20 bg-emerald-500/20 text-emerald-500 flex items-center justify-center rounded-full mx-auto mb-6">
+                    <Send size={40} />
+                  </div>
+                  <h3 className="text-3xl font-bold mb-4">Mensagem Enviada!</h3>
+                  <p className="text-zinc-400 max-w-sm mx-auto">
+                    Entrarei em contato com você o mais breve possível.
+                  </p>
+                  <button
+                    onClick={() => setFormState('idle')}
+                    className="mt-8 text-blue-500 font-bold hover:underline"
+                  >
+                    Enviar outra mensagem
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleContactSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-zinc-500 uppercase px-1">Nome</label>
+                      <input
+                        required
+                        name="name"
+                        type="text"
+                        placeholder="Seu nome"
+                        className="w-full bg-zinc-900 border border-white/5 rounded-2xl px-6 py-4 outline-none focus:border-primary transition-colors text-white"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-zinc-500 uppercase px-1">E-mail</label>
+                      <input
+                        required
+                        name="email"
+                        type="email"
+                        placeholder="seu@email.com"
+                        className="w-full bg-zinc-900 border border-white/5 rounded-2xl px-6 py-4 outline-none focus:border-primary transition-colors text-white"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-zinc-500 uppercase px-1">Mensagem</label>
+                    <textarea
+                      required
+                      name="message"
+                      placeholder="Como posso ajudar seu projeto?"
+                      rows={6}
+                      className="w-full bg-zinc-900 border border-white/5 rounded-2xl px-6 py-4 outline-none focus:border-primary transition-colors text-white resize-none"
+                    />
+                  </div>
+                  <button
+                    disabled={formState === 'loading'}
+                    className="w-full bg-primary hover:bg-blue-600 transition-all duration-300 text-white py-5 rounded-2xl font-bold text-xl cursor-pointer hover:shadow-2xl hover:shadow-primary/30 transition-all flex items-center justify-center space-x-3 disabled:opacity-70"
+                  >
+                    {formState === 'loading' ? (
+                      <div className="w-6 h-6 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                    ) : (
+                      <>
+                        <span>Enviar Mensagem</span>
+                        <Send size={24} />
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
+            </motion.div>
           </div>
 
-          <div className="text-zinc-600 text-sm">
-            © 2026 Alefe | Desenvolvedor Front-End. Todos os direitos reservados.
-          </div>
+        </section>
 
-          <div className="flex items-center space-x-6">
-            <a href="https://github.com/Alef-Henrique">
-              <Github size={20} />
-            </a>
-              <a 
-                href="https://www.linkedin.com/in/alefe-henrique" 
+        {/* Footer */}
+        <footer className="py-12 px-6 border-t border-white/5 bg-black">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+            <div className="flex flex-col items-center md:items-start group cursor-default">
+              <div className="flex items-center">
+                <span className="text-2xl font-display font-black tracking-tighter text-blue-500">Alefe</span>
+                <div className="mx-2 w-[1px] h-4 bg-zinc-800" />
+                <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-400">DevFront</span>
+              </div>
+              <span className="text-[10px] text-zinc-600 mt-2">Especialista Front-End</span>
+            </div>
+
+            <div className="text-zinc-600 text-sm">
+              © 2026 Alefe | Desenvolvedor Front-End. Todos os direitos reservados.
+            </div>
+
+            <div className="flex items-center space-x-6">
+              <a href="https://github.com/Alef-Henrique">
+                <Github size={20} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/alefe-henrique"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white/5 rounded-full text-zinc-400 hover:text-white hover:bg-blue-600 transition-all duration-300"
               >
                 <Linkedin size={20} />
               </a>
-            <a href="mailto:alefereal123@gmail.com" className="p-3 bg-white/5 rounded-full text-zinc-400 hover:text-white hover:bg-primary hover:bg-blue-600 transition-all duration-300 transition-all">
-              <Mail size={20} />
-            </a>
+              <a href="mailto:alefereal123@gmail.com" className="p-3 bg-white/5 rounded-full text-zinc-400 hover:text-white hover:bg-primary hover:bg-blue-600 transition-all duration-300 transition-all">
+                <Mail size={20} />
+              </a>
+            </div>
           </div>
-        </div>
-      </footer>
-    </div>
-  </>
+        </footer>
+      </div>
+    </>
   );
 }
