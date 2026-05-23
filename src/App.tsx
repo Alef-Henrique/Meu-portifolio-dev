@@ -495,19 +495,19 @@ export default function App() {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold mb-4 tracking-tight text-center leading-none px-4 w-full">
-                
-              <span className="text-blue-500 italic drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]">
-                Desenvolvedor
-              </span>
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold mb-4 tracking-tight text-center leading-none px-4 w-full"
+          >
+            <span className="text-4xl sm:text-5xl md:text-6xl text-blue-500 italic drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+              Desenvolvedor
+            </span>
 
-              <br />
+            <br />
 
-              Front-End
-            </motion.h1>
+            Front-End
+          </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
