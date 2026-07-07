@@ -53,15 +53,15 @@ const PROJECTS: Project[] = [
     github: "https://github.com/Alef-Henrique/sax-site"
   },
   {
-    id: "vita-nutricao",
-    title: "VITA+ Plataforma de Nutrição",
-    description: "Landing page moderna para uma plataforma de saúde e bem-estar.",
-    image: "assets/saude-site.png", // 👈 usa print do seu site
-    category: "Landing Page Premium",
+    id: "rj-seguranca",
+    title: "RJ Segurança e Informática",
+    description: "Site institucional desenvolvido para empresa de segurança eletrônica.",
+    image: "assets/rj-seguranca.png", // 👈 usa print do seu site
+    category: "site Institucional",
     problem: "Necessidade de comunicar uma proposta de saúde de forma clara, moderna e confiável para atrair e engajar usuários.",
     result: "Criação de uma interface elegante e estratégica que transmite autoridade, melhora a experiência do usuário e aumenta o engajamento com a plataforma.",
     tech: ["React", "Tailwind", "UI/UX Design"],
-    link: "https://project-vita-two.vercel.app/",
+    link: "https://www.rjsegurancainformatica.com.br/",
     github: "#"
   },
   {
@@ -370,18 +370,6 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           {project.description}
         </p>
 
-        {/* Study Case Highlight */}
-        <div className="space-y-4 p-5 bg-zinc-900/50 rounded-2xl border border-white/5 mb-6 min-h-[180px] flex flex-col justify-between">
-          <div>
-            <span className="text-[10px] font-bold text-blue-500 uppercase block mb-1">Problema</span>
-            <p className="text-xs text-zinc-200 font-medium line-clamp-3 italic">"{project.problem}"</p>
-          </div>
-          <div>
-            <span className="text-[10px] font-bold text-emerald-400 uppercase block mb-1">Resultado</span>
-            <p className="text-xs text-zinc-200 font-medium">{project.result}</p>
-          </div>
-        </div>
-
         <div className="flex flex-wrap gap-2 mb-8">
           {project.tech.map(t => (
             <span key={t} className="text-[10px] bg-white/5 text-zinc-400 px-2 py-1 rounded border border-white/5">
@@ -501,12 +489,13 @@ export default function App() {
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold mb-4 tracking-tight text-center leading-none px-4 w-full"
           >
             <span className="text-4xl sm:text-5xl md:text-6xl text-blue-500 italic drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]">
-              Desenvolvedor
+              Transformo ideias
+em 
             </span>
 
             <br />
 
-            Front-End
+            experiências digitais
           </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
