@@ -712,7 +712,91 @@ export default function App() {
           </motion.div>
         </section>
 
+      {/* Seção de Estatísticas / Resultados */}
+      <section id="resultados" className="relative py-24 px-6 overflow-hidden bg-transparent">
+        {/* Decorative background grid elements */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto relative z-10 text-center">
+          
+          {/* Header */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center mb-16"
+          >
+            {/* Título */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight leading-[1.15] text-white mb-4">
+              Números que representam meu trabalho
+            </h2>
 
+            {/* Subtítulo */}
+            <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-2xl font-light">
+              Cada projeto entregue representa meu compromisso com qualidade, performance e resultados.
+            </p>
+          </motion.div>
+
+          {/* Cards Flex Container */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1
+                }
+              }
+            }}
+            className="flex flex-col sm:flex-row sm:flex-wrap lg:flex-nowrap gap-6 lg:gap-8 w-full max-w-5xl mx-auto items-stretch justify-center"
+          >
+            {[
+              {
+                value: 30,
+                suffix: "+",
+                title: "Projetos Entregues"
+              },
+              {
+                value: 3,
+                suffix: "+",
+                title: "Anos de Experiência"
+              },
+              {
+                value: 100,
+                suffix: "%",
+                title: "Qualidade"
+              },
+              {
+                value: 24,
+                suffix: "h",
+                title: "Suporte"
+              }
+            ].map((card, idx) => (
+              <motion.div 
+                key={idx}
+                variants={{
+                  hidden: { opacity: 0, y: 25 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                }}
+                className="glass bg-[#0D1117]/80 backdrop-blur-md border border-white/[0.06] rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-2 hover:border-primary/50 hover:bg-[#131922] hover:shadow-[0_15px_30px_rgba(59,130,246,0.15)] group flex flex-col justify-center items-center w-full sm:w-[calc(50%-12px)] lg:w-auto lg:flex-1 py-8 cursor-default gap-3"
+              >
+                {/* Número com Contador Animado */}
+                <span className="text-3xl sm:text-4xl font-display font-black text-primary group-hover:text-white transition-colors duration-300 block text-center">
+                  <AnimatedCounter value={card.value} />{card.suffix}
+                </span>
+                <h4 className="text-white text-sm font-semibold transition-colors group-hover:text-primary duration-300 text-center w-auto">
+                  {card.title}
+                </h4>
+              </motion.div>
+            ))}
+          </motion.div>
+
+        </div>
+      </section>
 
         {/* About Section */}
         <section id="sobre" className="py-24 px-6 max-w-7xl mx-auto">
@@ -734,16 +818,6 @@ export default function App() {
                 e intuitivas.
               </p>
 
-              <div className="grid grid-cols-2 gap-6">
-                <div className="p-6 bg-zinc-900 rounded-2xl border border-white/5">
-                  <span className="text-3xl font-display font-bold text-blue-500 block">30+</span>
-                  <span className="text-zinc-500 text-sm">Projetos Entregues</span>
-                </div>
-                <div className="p-6 bg-zinc-900 rounded-2xl border border-white/5">
-                  <span className="text-3xl font-display font-bold text-blue-500 block">3+</span>
-                  <span className="text-zinc-500 text-sm">Anos de React</span>
-                </div>
-              </div>
             </motion.div>
 
             <motion.div
@@ -752,17 +826,17 @@ export default function App() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relativew-full md:w-auto flex justify-center">
-                <div className="w-full h- full bg-zinc-900 rounded-[3rem] overflow-hidden">
-                  <img
-                    alt="Profile"
-                    className="w-full h-full object-cover"
-                    src="assets/Foto-Perfil.png"
-                  />
-                </div>
-
-                <div className="absolute inset-0 border-2 border-primary/30 rounded-[3rem] translate-x-4 translate-y-3 rotate-3" />
+            <div className="relative w-full md:w-auto flex justify-center">
+              <div className="w-80 h-96 bg-zinc-900 rounded-[3rem] overflow-hidden">
+                <img
+                  src="assets/Foto-Perfil.png"
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
               </div>
+
+              <div className="absolute w-72 h-96 border-2 border-primary/30 rounded-[3rem] translate-x-4 translate-y-3 rotate-3" />
+            </div>
             </motion.div>
           </div>
         </section>
