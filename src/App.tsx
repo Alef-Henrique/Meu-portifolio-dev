@@ -64,18 +64,18 @@ const PROJECTS: Project[] = [
     link: "https://www.rjsegurancainformatica.com.br/",
     github: "#"
   },
-  {
-    id: "lumina-advogados",
-    title: "Lumina Assessoria Jurídica",
-    description: "Site institucional desenvolvido para escritório jurídico.",
-    image: "assets/direito-site.png",
-    category: "Site Institucional",
-    problem: "Dificuldade em transmitir confiança e apresentar serviços jurídicos de forma clara e profissional no ambiente digital.",
-    result: "Criação de um site moderno e estratégico que fortalece a autoridade do escritório, melhora a comunicação dos serviços e aumenta a conversão de novos clientes.",
-    tech: ["React", "Tailwind", "UI/UX Design"],
-    link: "https://lumina-projeto.vercel.app/",
-    github: "#"
-  },
+{
+  id: "iron-glow",
+  title: "Iron Glow",
+  description:"Landing page premium desenvolvida para uma academia de alta performance, com foco em conversão, experiência do usuário e identidade visual marcante.",
+  image: "assets/iron-glow.png",
+  category: "Landing Page",
+  problem:"Criar uma landing page moderna capaz de transmitir autoridade, destacar os diferenciais da academia e incentivar novos alunos a realizarem o agendamento de uma avaliação.",
+  result:"Desenvolvimento de uma interface responsiva com design premium, animações suaves, navegação intuitiva e CTAs estrategicamente posicionados para aumentar a conversão de visitantes em novos clientes.",
+  tech: ["React","TypeScript","Tailwind CSS","Framer Motion","Vite"],
+  link: "https://projeto-personal-main.vercel.app/",
+  github: "#",
+},
   {
     id: "Maceio-imoveis",
     title: "Maceió Prime",
@@ -101,18 +101,21 @@ const PROJECTS: Project[] = [
     link: "https://project-inib-gold.vercel.app/",
     github: "#"
   },
-  {
-    id: "codewave-agencia",
-    title: "CodeWave",
-    description: "Site institucional moderno desenvolvido para a Empresa CodeWave.",
-    image: "assets/codewave-site.png",
-    category: "Agência Web",
-    problem: "Necessidade de construir uma presença digital forte e profissional para transmitir autoridade, apresentar serviços de forma estratégica e gerar novos clientes.",
-    result: "Desenvolvimento de uma interface moderna, responsiva e visualmente impactante, fortalecendo a identidade da empresa e aumentando o potencial de captação de clientes.",
-    tech: ["React", "Tailwind", "Framer Motion"],
-    link: "https://www.codewaveagency.com.br/",
-    github: "#"
-  }
+{
+  id: "monitoraweb",
+  title: "MonitoraWeb",
+  description:
+    "Site institucional moderno desenvolvido para apresentar uma empresa especializada em soluções digitais, com foco em performance, experiência do usuário e conversão.",
+  image: "assets/monitora-web.png",
+  category: "Site Institucional",
+  problem:
+    "Criar uma presença digital profissional que transmitisse credibilidade, destacasse os serviços oferecidos e proporcionasse uma experiência moderna para potenciais clientes.",
+  result:
+    "Desenvolvimento de uma interface responsiva, com animações avançadas utilizando GSAP e Framer Motion, navegação intuitiva, otimização para SEO e foco em performance e conversão.",
+  tech: ["React", "TypeScript", "Tailwind CSS", "GSAP", "Framer Motion"],
+  link: "https://monitora-web-five.vercel.app/",
+  github: "#",
+}
 
 ];
 
