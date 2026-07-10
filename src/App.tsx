@@ -1,6 +1,24 @@
 import { useScrollReveal } from "./hooks/useScrollReveal";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import {
+  SiHtml5,
+  SiCss,
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiVite,
+  SiNodedotjs,
+  SiExpress,
+  SiFirebase,
+  SiGit,
+  SiGithub,
+  SiFigma,
+  SiVercel,
+  SiGreensock
+} from "react-icons/si";
 import {
   ShieldCheck,
   Github,
@@ -64,18 +82,18 @@ const PROJECTS: Project[] = [
     link: "https://www.rjsegurancainformatica.com.br/",
     github: "#"
   },
-{
-  id: "iron-glow",
-  title: "Iron Glow",
-  description:"Landing page premium desenvolvida para uma academia de alta performance, com foco em conversão, experiência do usuário e identidade visual marcante.",
-  image: "assets/iron-glow.png",
-  category: "Landing Page",
-  problem:"Criar uma landing page moderna capaz de transmitir autoridade, destacar os diferenciais da academia e incentivar novos alunos a realizarem o agendamento de uma avaliação.",
-  result:"Desenvolvimento de uma interface responsiva com design premium, animações suaves, navegação intuitiva e CTAs estrategicamente posicionados para aumentar a conversão de visitantes em novos clientes.",
-  tech: ["React","TypeScript","Tailwind CSS","Framer Motion","Vite"],
-  link: "https://projeto-personal-main.vercel.app/",
-  github: "#",
-},
+  {
+    id: "iron-glow",
+    title: "Iron Glow",
+    description: "Landing page premium desenvolvida para uma academia de alta performance, com foco em conversão, experiência do usuário e identidade visual marcante.",
+    image: "assets/iron-glow.png",
+    category: "Landing Page",
+    problem: "Criar uma landing page moderna capaz de transmitir autoridade, destacar os diferenciais da academia e incentivar novos alunos a realizarem o agendamento de uma avaliação.",
+    result: "Desenvolvimento de uma interface responsiva com design premium, animações suaves, navegação intuitiva e CTAs estrategicamente posicionados para aumentar a conversão de visitantes em novos clientes.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"],
+    link: "https://projeto-personal-main.vercel.app/",
+    github: "#",
+  },
   {
     id: "Maceio-imoveis",
     title: "Maceió Prime",
@@ -101,21 +119,21 @@ const PROJECTS: Project[] = [
     link: "https://project-inib-gold.vercel.app/",
     github: "#"
   },
-{
-  id: "monitoraweb",
-  title: "MonitoraWeb",
-  description:
-    "Site institucional moderno desenvolvido para apresentar uma empresa especializada em soluções digitais, com foco em performance, experiência do usuário e conversão.",
-  image: "assets/monitora-web.png",
-  category: "Site Institucional",
-  problem:
-    "Criar uma presença digital profissional que transmitisse credibilidade, destacasse os serviços oferecidos e proporcionasse uma experiência moderna para potenciais clientes.",
-  result:
-    "Desenvolvimento de uma interface responsiva, com animações avançadas utilizando GSAP e Framer Motion, navegação intuitiva, otimização para SEO e foco em performance e conversão.",
-  tech: ["React", "TypeScript", "Tailwind CSS", "GSAP", "Framer Motion"],
-  link: "https://monitora-web-five.vercel.app/",
-  github: "#",
-}
+  {
+    id: "monitoraweb",
+    title: "MonitoraWeb",
+    description:
+      "Site institucional moderno desenvolvido para apresentar uma empresa especializada em soluções digitais, com foco em performance, experiência do usuário e conversão.",
+    image: "assets/monitora-web.png",
+    category: "Site Institucional",
+    problem:
+      "Criar uma presença digital profissional que transmitisse credibilidade, destacasse os serviços oferecidos e proporcionasse uma experiência moderna para potenciais clientes.",
+    result:
+      "Desenvolvimento de uma interface responsiva, com animações avançadas utilizando GSAP e Framer Motion, navegação intuitiva, otimização para SEO e foco em performance e conversão.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "GSAP", "Framer Motion"],
+    link: "https://monitora-web-five.vercel.app/",
+    github: "#",
+  }
 
 ];
 
@@ -152,7 +170,105 @@ const EXPERIENCES: Experience[] = [
   }
 
 ];
+// --- Helpers ---
+const AnimatedCounter = ({ value, duration = 2000 }: { value: number; duration?: number }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
+  useEffect(() => {
+    if (!isInView) return;
+    let startTimestamp: number | null = null;
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+
+      // Decelerate easing: cubic ease-out
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+      setCount(Math.floor(easeProgress * value));
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        setCount(value);
+      }
+    };
+
+    window.requestAnimationFrame(step);
+  }, [isInView, value, duration]);
+
+  return <span ref={ref}>{count}</span>;
+};
+
+
+const TECHNOLOGIES = [
+  {
+    name: "HTML5",
+    icon: SiHtml5,
+  },
+  {
+    name: "CSS3",
+    icon: SiCss,
+  },
+  {
+    name: "JavaScript",
+    icon: SiJavascript,
+  },
+  {
+    name: "TypeScript",
+    icon: SiTypescript,
+  },
+  {
+    name: "React",
+    icon: SiReact,
+  },
+  {
+    name: "Next.js",
+    icon: SiNextdotjs,
+  },
+  {
+    name: "TailwindCSS",
+    icon: SiTailwindcss,
+  },
+  {
+    name: "Vite",
+    icon: SiVite,
+  },
+  {
+    name: "Node.js",
+    icon: SiNodedotjs,
+  },
+  {
+    name: "Express",
+    icon: SiExpress,
+  },
+  {
+    name: "Firebase",
+    icon: SiFirebase,
+  },
+  {
+    name: "Git",
+    icon: SiGit,
+  },
+  {
+    name: "GitHub",
+    icon: SiGithub,
+  },
+  {
+    name: "GSAP",
+    icon: SiGreensock,
+  },
+  {
+    name: "Figma",
+    icon: SiFigma,
+  },
+  {
+    name: "Vercel",
+    icon: SiVercel,
+  },
+];
 // --- Components ---
 
 const SectionHeading = ({ children, subtitle }: { children: ReactNode, subtitle?: string }) => (
@@ -227,26 +343,45 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={cn(
-      "fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 py-4",
-      isScrolled ? "bg-black/80 backdrop-blur-xl border-b border-white/5 py-3" : "bg-transparent"
-    )}>
+    <nav
+      className={cn(
+        "fixed top-0 left-0 w-full z-50 px-6 transition-[background-color,backdrop-filter,padding] duration-300",
+        isScrolled
+          ? "bg-black/80 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.35)] py-3"
+          : "bg-transparent py-4"
+      )}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* LOGO SIMPLIFICADO E IMPACTANTE */}
-        <a href="#" className="flex items-center group cursor-pointer" onClick={(e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}>
-          <div className="relative flex items-center">
-            <span className="text-2xl font-display font-black tracking-[-0.05em] text-blue-500 group-hover:text-white transition-colors duration-300">
-              Alefe
-            </span>
-            <div className="mx-3 w-[1px] h-6 bg-zinc-800 group-hover:bg-primary hover:bg-blue-600 transition-all duration-300/50 transition-colors duration-500" />
-            <span className="text-[10px] uppercase tracking-[0.4em] font-extrabold text-zinc-500 group-hover:text-blue-500 transition-colors duration-300">
-              DevFront
-            </span>
-            {/* Efeito de brilho sutil ao passar o mouse */}
-            <div className="absolute -inset-x-4 -inset-y-2 bg-primary hover:bg-blue-600 transition-all duration-300/10 blur-2xl rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none" />
+        {/* LOGO */}
+        <a
+          href="#"
+          className="group flex items-center cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
+          <div className="relative flex items-center gap-3">
+            {/* Logo */}
+            <img
+              src="./assets/logositecode.png"
+              alt="DevFront Logo"
+              className="h-9 w-auto object-contain shrink-0"
+            />
+
+            {/* Texto */}
+            <div className="flex flex-col justify-center leading-none">
+              <span className="text-sm font-black tracking-[0.25em] uppercase text-zinc-100 transition-colors duration-300 group-hover:text-blue-500">
+                Alefecode
+              </span>
+
+              <span className="text-[9px] tracking-[0.25em] uppercase text-zinc-500">
+                DEV-FRONT
+              </span>
+            </div>
+
+            {/* Glow */}
+            <div className="pointer-events-none absolute -inset-x-4 -inset-y-2 rounded-full bg-blue-500/10 blur-2xl opacity-0 transition-opacity duration-700 group-hover:opacity-30" />
           </div>
         </a>
 
@@ -256,20 +391,17 @@ const Navbar = () => {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="text-zinc-400 hover:text-white transition-colors relative group"
+              className="relative text-zinc-400 transition-colors duration-300 hover:text-white group"
             >
               {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" />
+
+              <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
 
           <a
             href="#contato"
-            className="bg-white text-black px-5 py-2.5 rounded-full font-semibold text-xs
-                      hover:bg-blue-500 hover:text-white
-                      transition-all duration-300
-                      transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95
-                      shadow-lg shadow-black/20"
+            className="rounded-full bg-white px-5 py-2.5 text-xs font-semibold text-black shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:text-white active:translate-y-0 active:scale-95"
           >
             VAMOS CONVERSAR
           </a>
@@ -486,20 +618,20 @@ export default function App() {
             </motion.div>
 
             <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold mb-4 tracking-tight text-center leading-none px-4 w-full"
-          >
-            <span className="text-4xl sm:text-5xl md:text-6xl text-blue-500 italic drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]">
-              Transformo ideias
-em 
-            </span>
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold mb-4 tracking-tight text-center leading-none px-4 w-full"
+            >
+              <span className="text-4xl sm:text-5xl md:text-6xl text-blue-500 italic drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+                Transformo ideias
+                em
+              </span>
 
-            <br />
+              <br />
 
-            experiências digitais
-          </motion.h1>
+              experiências digitais
+            </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -535,7 +667,52 @@ em
               <div className="w-1 h-2 bg-primary hover:bg-blue-600 transition-all duration-300 rounded-full" />
             </div>
           </motion.div>
+
         </section>
+        <section className="py-24 px-6 bg-transparent">
+          {/* Carrossel infinito de tecnologias */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="w-full overflow-hidden relative py-4 mb-12 select-none"
+            id="carrossel-tech"
+          >
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+            <motion.div
+              className="flex gap-4 w-max"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                ease: "linear",
+                duration: 35,
+                repeat: Infinity,
+              }}
+            >
+            {[...TECHNOLOGIES, ...TECHNOLOGIES, ...TECHNOLOGIES, ...TECHNOLOGIES].map((tech, i) => {
+              const Icon = tech.icon;
+
+              return (
+                <div
+                  key={i}
+                  className="flex items-center space-x-2.5 px-5 py-3 bg-zinc-950/90 border border-white/5 rounded-2xl hover:border-primary/40 hover:scale-105 transition-all duration-300 group shadow-[0_0_15px_rgba(59,130,246,0.01)] hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] cursor-pointer"
+                >
+                  <div className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="w-6 h-6 text-zinc-400 group-hover:text-blue-500 transition-colors duration-300" />
+                  </div>
+
+                  <span className="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors">
+                    {tech.name}
+                  </span>
+                </div>
+              );
+            })}
+            </motion.div>
+          </motion.div>
+        </section>
+
+
 
         {/* About Section */}
         <section id="sobre" className="py-24 px-6 max-w-7xl mx-auto">
@@ -803,11 +980,23 @@ em
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
             <div className="flex flex-col items-center md:items-start group cursor-default">
               <div className="flex items-center">
-                <span className="text-2xl font-display font-black tracking-tighter text-blue-500">Alefe</span>
-                <div className="mx-2 w-[1px] h-4 bg-zinc-800" />
-                <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-400">DevFront</span>
+                <img
+                  src="./assets/logositecode.png"
+                  alt="DevFront Logo"
+                  className="h-9 w-auto object-contain shrink-0"
+                />
+                <div className="mx-2 h-[1px] h-4 bg-zinc-800" />
+
+                <div className="flex flex-col justify-center leading-none">
+                  <span className="text-sm font-black tracking-[0.25em] uppercase text-zinc-100 transition-colors duration-300 group-hover:text-blue-500">
+                    Alefecode
+                  </span>
+
+                  <span className="text-[9px] tracking-[0.25em] uppercase text-zinc-500">
+                    DEV-FRONT
+                  </span>
+                </div>
               </div>
-              <span className="text-[10px] text-zinc-600 mt-2">Especialista Front-End</span>
             </div>
 
             <div className="text-zinc-600 text-sm">
