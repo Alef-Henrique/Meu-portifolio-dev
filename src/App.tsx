@@ -95,16 +95,16 @@ const PROJECTS: Project[] = [
     github: "#",
   },
   {
-    id: "Maceio-imoveis",
-    title: "Maceió Prime",
+    id: "Site para Corretor",
+    title: "Rafael Corretor imobiliário",
     description: "Plataforma imobiliária moderna com foco em imóveis de alto padrão.",
-    image: "assets/imoveis-site.png",
+    image: "assets/site-corretor.png",
     category: "Plataforma Imobiliária",
     problem: "Necessidade de criar uma presença digital premium capaz de transmitir sofisticação, confiança e facilitar a visualização dos imóveis.",
     result: "Desenvolvimento de uma interface moderna e cinematográfica que melhora a experiência do usuário, valoriza os imóveis e fortalece a percepção da marca.",
     tech: ["React", "Tailwind", "Framer Motion"],
-    link: "https://site-imobili-rio-macei.vercel.app/",
-    github: "https://github.com/Alef-Henrique/site-imobili-rio-macei-"
+    link: "https://www.rafaelnegociosimobiliarios.com/",
+    github: ""
   },
 
   {
@@ -829,7 +829,7 @@ export default function App() {
             <div className="relative w-full md:w-auto flex justify-center">
               <div className="w-80 h-96 bg-zinc-900 rounded-[3rem] overflow-hidden">
                 <img
-                  src="assets/Foto-Perfil.png"
+                  src="assets/Foto-Perfil.webp"
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
