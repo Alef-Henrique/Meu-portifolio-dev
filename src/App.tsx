@@ -410,7 +410,7 @@ const Navbar = () => {
           <div className="relative flex items-center gap-3">
             {/* Logo */}
             <img
-              src="./assets/logositecode.png"
+              src="./assets/logositecode.webp"
               alt="DevFront Logo"
               className="h-9 w-auto object-contain shrink-0"
             />
