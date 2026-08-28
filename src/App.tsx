@@ -192,8 +192,8 @@ const TESTIMONIALS: Testimonial[] = [
     id: "1",
     name: "Fernanda",
     role: "CEO da RJ Segurança e Informática",
-    avatar: "public/assets/foto-fernanda.jpeg",
-    image: "public/assets/performance-Rj.jpeg",
+    avatar: "/assets/foto-fernanda.jpeg",
+    image: "/assets/performance-Rj.jpeg",
     content: "Álefe, quero agradecer e expressar minha gratidão pelo excelente trabalho realizado na criação do nosso site. ficou simplesmente perfeito e superou nossas expectativas.",
     rating: 5,
     highlightMetric: "+45% de Conversão"
@@ -202,8 +202,8 @@ const TESTIMONIALS: Testimonial[] = [
     id: "2",
     name: "Gustavo Farias",
     role: "Gestor de Projetos e Inovação",
-    avatar: "public/assets/foto-gustavo.jpeg",
-    image: "public/assets/performance-descomp.png",
+    avatar: "/assets/foto-gustavo.jpeg",
+    image: "/assets/performance-descomp.png",
     content: "Cara, ficou muito bom! Era exatamente o que a gente precisava. A página ficou profissional, rápida e conseguiu explicar nossa proposta de uma forma muito mais clara. Gostei bastante principalmente de como ficou no celular. Com certeza vai ajudar bastante na divulgação do Descomplicando Aprovações.",
     rating: 5,
     highlightMetric: "60 FPS em Tempo Real"
@@ -212,8 +212,8 @@ const TESTIMONIALS: Testimonial[] = [
     id: "3",
     name: "Rafael Corretor",
     role: "Corretor de Imóveis",
-    avatar: "public/assets/foto-rafa.jpeg",
-    image: "public/assets/performance-imoveis.png",
+    avatar: "/assets/foto-rafa.jpeg",
+    image: "/assets/performance-imoveis.png",
     content: "O Álefe entendeu exatamente o que eu precisava e conseguiu transformar minha ideia em um site moderno, organizado e profissional. Agora tenho uma ferramenta muito melhor para apresentar meus imóveis, transmitir confiança e facilitar o contato com novos clientes pelo WhatsApp.",
     rating: 5,
     highlightMetric: "UI/UX & Streaming IA"
