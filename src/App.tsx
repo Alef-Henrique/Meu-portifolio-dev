@@ -100,7 +100,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: "iron-glow",
-    title: "Iron Glow",
+    title: "Landing Page para Advogados",
     description: "Página de apresentação para Advogados e Escritórios de advocacia.",
     image: "assets/capa-advogado.png",
     category: "Landing Page",
@@ -137,7 +137,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: "monitoraweb",
-    title: "MonitoraWeb",
+    title: "Descomplica Aprovações",
     description:
       "Landing page desenvolvida para o Lançamento da Plataforma.",
     image: "assets/capa-descomplica.png",
