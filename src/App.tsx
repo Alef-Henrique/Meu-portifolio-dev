@@ -17,13 +17,19 @@ import {
   SiGithub,
   SiFigma,
   SiVercel,
-  SiGreensock
+
 } from "react-icons/si";
 import {
   ShieldCheck,
   Github,
   Linkedin,
   Mail,
+  Quote,
+  ZoomIn,
+  Star,
+  Download,
+  CheckCircle2,
+  Sparkles,
   ExternalLink,
   Code2,
   Layers,
@@ -55,6 +61,16 @@ interface Experience {
   period: string;
   description: string;
 }
+interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  avatar: string;
+  image: string;
+  content: string;
+  rating: number;
+  highlightMetric: string;
+}
 
 // --- Data ---
 const PROJECTS: Project[] = [
@@ -85,13 +101,13 @@ const PROJECTS: Project[] = [
   {
     id: "iron-glow",
     title: "Iron Glow",
-    description: "Landing page premium desenvolvida para uma academia de alta performance, com foco em conversão, experiência do usuário e identidade visual marcante.",
-    image: "assets/iron-glow.png",
+    description: "Página de apresentação para Advogados e Escritórios de advocacia.",
+    image: "assets/capa-advogado.png",
     category: "Landing Page",
-    problem: "Criar uma landing page moderna capaz de transmitir autoridade, destacar os diferenciais da academia e incentivar novos alunos a realizarem o agendamento de uma avaliação.",
+    problem: "Página de apresentação para Advogados.",
     result: "Desenvolvimento de uma interface responsiva com design premium, animações suaves, navegação intuitiva e CTAs estrategicamente posicionados para aumentar a conversão de visitantes em novos clientes.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"],
-    link: "https://projeto-personal-main.vercel.app/",
+    link: "https://gabriela-silveira.vercel.app/",
     github: "#",
   },
   {
@@ -123,15 +139,15 @@ const PROJECTS: Project[] = [
     id: "monitoraweb",
     title: "MonitoraWeb",
     description:
-      "Site institucional moderno desenvolvido para apresentar uma empresa especializada em soluções digitais, com foco em performance, experiência do usuário e conversão.",
-    image: "assets/monitora-web.png",
-    category: "Site Institucional",
+      "Landing page desenvolvida para o Lançamento da Plataforma.",
+    image: "assets/capa-descomplica.png",
+    category: "Landing Page",
     problem:
       "Criar uma presença digital profissional que transmitisse credibilidade, destacasse os serviços oferecidos e proporcionasse uma experiência moderna para potenciais clientes.",
     result:
       "Desenvolvimento de uma interface responsiva, com animações avançadas utilizando GSAP e Framer Motion, navegação intuitiva, otimização para SEO e foco em performance e conversão.",
     tech: ["React", "TypeScript", "Tailwind CSS", "GSAP", "Framer Motion"],
-    link: "https://monitora-web-five.vercel.app/",
+    link: "https://www.descomplicandoaprovacoes.com.br/",
     github: "#",
   }
 
@@ -169,6 +185,39 @@ const EXPERIENCES: Experience[] = [
     description: "Evoluí minhas habilidades em HTML, CSS e JavaScript através de cursos especializados na Udemy. Essa trajetória foi marcada pela criação de projetos reais e pessoais, onde transformei conceitos técnicos em soluções visuais modernas e interativas."
   }
 
+];
+
+const TESTIMONIALS: Testimonial[] = [
+  {
+    id: "1",
+    name: "Fernanda",
+    role: "CEO da RJ Segurança e Informática",
+    avatar: "public/assets/foto-fernanda.jpeg",
+    image: "public/assets/performance-Rj.jpeg",
+    content: "Álefe, quero agradecer e expressar minha gratidão pelo excelente trabalho realizado na criação do nosso site. ficou simplesmente perfeito e superou nossas expectativas.",
+    rating: 5,
+    highlightMetric: "+45% de Conversão"
+  },
+  {
+    id: "2",
+    name: "Gustavo Farias",
+    role: "Gestor de Projetos e Inovação",
+    avatar: "public/assets/foto-gustavo.jpeg",
+    image: "public/assets/performance-descomp.png",
+    content: "Cara, ficou muito bom! Era exatamente o que a gente precisava. A página ficou profissional, rápida e conseguiu explicar nossa proposta de uma forma muito mais clara. Gostei bastante principalmente de como ficou no celular. Com certeza vai ajudar bastante na divulgação do Descomplicando Aprovações.",
+    rating: 5,
+    highlightMetric: "60 FPS em Tempo Real"
+  },
+  {
+    id: "3",
+    name: "Rafael Corretor",
+    role: "Corretor de Imóveis",
+    avatar: "public/assets/foto-rafa.jpeg",
+    image: "public/assets/performance-imoveis.png",
+    content: "O Álefe entendeu exatamente o que eu precisava e conseguiu transformar minha ideia em um site moderno, organizado e profissional. Agora tenho uma ferramenta muito melhor para apresentar meus imóveis, transmitir confiança e facilitar o contato com novos clientes pelo WhatsApp.",
+    rating: 5,
+    highlightMetric: "UI/UX & Streaming IA"
+  }
 ];
 // --- Helpers ---
 const AnimatedCounter = ({ value, duration = 2000 }: { value: number; duration?: number }) => {
@@ -257,10 +306,6 @@ const TECHNOLOGIES = [
     icon: SiGithub,
   },
   {
-    name: "GSAP",
-    icon: SiGreensock,
-  },
-  {
     name: "Figma",
     icon: SiFigma,
   },
@@ -332,6 +377,7 @@ const Navbar = () => {
     { label: "Sobre", id: "sobre" },
     { label: "Skills", id: "skills" },
     { label: "Projetos", id: "projetos" },
+    { label: "Depoimentos", id: "depoimentos" },
     { label: "Trajetória", id: "trajetoria" },
     { label: "Contato", id: "contato" }
   ];
@@ -532,6 +578,7 @@ export default function App() {
   useScrollReveal();
 
   const skillsRef = useRef<HTMLDivElement>(null)
+  const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
 
   const scrollLeft = () => {
     if (skillsRef.current) {
@@ -756,7 +803,7 @@ export default function App() {
           >
             {[
               {
-                value: 30,
+                value: 15,
                 suffix: "+",
                 title: "Projetos Entregues"
               },
@@ -798,48 +845,6 @@ export default function App() {
         </div>
       </section>
 
-        {/* About Section */}
-        <section id="sobre" className="py-24 px-6 max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <SectionHeading>Sobre Mim</SectionHeading>
-              <p className="text-zinc-400 text-lg leading-relaxed mb-6">
-                Com mais de 3 anos de experiência no ecossistema web, transformo problemas
-                complexos em soluções elegantes e escaláveis. Minha abordagem une a precisão
-                técnica da engenharia com a sensibilidade estética do design.
-              </p>
-              <p className="text-zinc-400 text-lg leading-relaxed mb-8">
-                Foco em resultados: Não se trata apenas de escrever código, mas de
-                gerar valor para o negócio através de interfaces rápidas, acessíveis
-                e intuitivas.
-              </p>
-
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-            <div className="relative w-full md:w-auto flex justify-center">
-              <div className="w-80 h-96 bg-zinc-900 rounded-[3rem] overflow-hidden">
-                <img
-                  src="assets/Foto-Perfil.webp"
-                  alt="Profile"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="absolute w-72 h-96 border-2 border-primary/30 rounded-[3rem] translate-x-4 translate-y-3 rotate-3" />
-            </div>
-            </motion.div>
-          </div>
-        </section>
 
         {/* Skills Section */}
         <section id="skills" className="py-24 px-6 bg-transparent">
@@ -921,6 +926,97 @@ export default function App() {
             ))}
           </div>
         </section>
+       {/* Testimonials Section */}
+      <section id="depoimentos" className="py-24 px-6 relative overflow-hidden border-t border-b border-white/[0.03]">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[320px] bg-primary/5 blur-[140px] rounded-full pointer-events-none -z-10" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-col items-center text-center mb-16">
+            {/* Badge */}
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wider uppercase mb-4 shadow-[0_0_20px_rgba(59,130,246,0.1)]"
+            >
+              <Quote size={12} className="text-primary fill-primary/30" />
+              <span>Depoimentos Reais</span>
+            </motion.div>
+
+            {/* Title */}
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight leading-[1.15] text-white mb-4"
+            >
+              O que dizem sobre meus projetos
+            </motion.h2>
+
+            {/* Subtitle */}
+            <motion.p 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-2xl font-light"
+            >
+              A satisfação de fundadores, líderes técnicos e clientes com soluções focadas em alta performance, UX refinada e entrega ágil.
+            </motion.p>
+          </div>
+
+          {/* Testimonial Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {TESTIMONIALS.map((item, idx) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.12 }}
+                onClick={() => setSelectedTestimonial(item)}
+                 className="glass bg-[#0D1117]/80 backdrop-blur-md border border-white/[0.06] rounded-2xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-primary/50 hover:bg-[#131922] hover:shadow-[0_20px_40px_rgba(59,130,246,0.15)] group relative overflow-hidden cursor-pointer"
+              >
+                <div>
+                  {/* Screenshot / Project Image */}
+                  <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-white/[0.08] bg-zinc-950">
+                    <img 
+                      src={item.image} 
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Gratitude / Feedback Text */}
+                  <p className="text-zinc-300 text-sm leading-relaxed mb-5 font-light group-hover:text-white transition-colors duration-300">
+                    "{item.content}"
+                  </p>
+                </div>
+
+                {/* Client Photo & Information */}
+                <div className="pt-3 border-t border-white/[0.06] flex items-center space-x-3">
+                  <img 
+                    src={item.avatar} 
+                    alt={item.name} 
+                    className="w-10 h-10 rounded-full object-cover ring-2 ring-primary/20 group-hover:ring-primary/60 transition-all duration-300"
+                  />
+                  <div>
+                    <h4 className="text-white text-sm font-bold tracking-tight group-hover:text-primary transition-colors duration-300">
+                      {item.name}
+                    </h4>
+                    <p className="text-zinc-400 text-xs font-light">
+                      {item.role} <span className="text-zinc-600">·</span>
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
         {/* Trajectory */}
         <section id="trajetoria" className="py-24 px-6 max-w-5xl mx-auto">
@@ -1095,6 +1191,46 @@ export default function App() {
             </div>
           </div>
         </footer>
+         <AnimatePresence>
+        {selectedTestimonial && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xl"
+            onClick={() => setSelectedTestimonial(null)}
+          >
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-4xl w-full bg-[#0D1117] border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+            >
+              {/* Modal Top Bar */}
+              <div className="flex items-center justify-end px-4 py-3 border-b border-white/10 bg-zinc-950/70">
+                <button 
+                  onClick={() => setSelectedTestimonial(null)}
+                  className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              {/* Large Image Preview */}
+              <div className="relative w-full max-h-[75vh] bg-black flex items-center justify-center overflow-hidden p-2">
+                <img 
+                  src={selectedTestimonial.image} 
+                  alt="Visualização da imagem" 
+                  className="w-full h-full max-h-[75vh] object-contain rounded-lg"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+        
       </div>
     </>
   );
