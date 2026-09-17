@@ -572,6 +572,15 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
     </motion.div>
   );
 };
+declare global {
+  interface Window {
+    gtag: (
+      command: string,
+      eventName: string,
+      eventParams?: Record<string, any>
+    ) => void;
+  }
+}
 
 export default function App() {
 
@@ -620,10 +629,18 @@ export default function App() {
 
       console.log("status:", res.status);
 
-      if (res.ok) {
-        setFormState('success');
-        alert("Mensagem enviada 🚀"); // opcional
-      } else {
+        if (res.ok) {
+          setFormState('success');
+
+          // Registra o envio do formulário no Google Analytics
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'form_submit', {
+              form_name: 'formulario_contato',
+            });
+          }
+
+          alert("Mensagem enviada 🚀");
+        } else {
         console.error("Erro no servidor");
         setFormState('idle');
       }
